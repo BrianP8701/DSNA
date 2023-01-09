@@ -4,6 +4,8 @@ public class timer {
 
     // Big O Notation
 
+    // Measuring how long test method takes to run
+
     public static void main(String[] args) {
         long startTime = System.currentTimeMillis();
         
