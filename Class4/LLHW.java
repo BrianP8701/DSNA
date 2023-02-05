@@ -1,5 +1,7 @@
 package Class4;
 
+import java.util.HashSet;
+
 public class LLHW {
     public static void main(String[] args) {
         
@@ -8,12 +10,43 @@ public class LLHW {
         Node head;
         Node tail;
         int size = 0;
-        void add(int x, int index){
 
+        void add(int x, int index){
+            int i = 0;
+            Node temp = head;
+            while(i != index){
+                temp = temp.next;
+                i++;
+            }
+
+            Node addedNode = new Node(x, temp.next.next);
+            temp.next = addedNode;
         }
+
+
         void remove(int index){
-            
+            int i = 0;
+            Node temp = head;
+            while(i != index){
+                temp = temp.next;
+                i++;
+            }
+            temp.next = temp.next.next;
         }
+
+        // Can't be repeating numbers
+        boolean isCycle(){
+            HashSet<Node> set = new HashSet<>();
+            Node temp = head;
+            while(temp.next != null){
+                set.add(temp);
+            }
+            if(set.size() != this.size) return false;
+            return true;
+        }
+
+        //  1 -> 2 -> 3 -> 1
+
         void add(int x){
             if(head == null){
                 head = new Node(x, null);
